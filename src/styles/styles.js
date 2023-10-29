@@ -3,6 +3,7 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
+
 const styles = StyleSheet.create({
 	wrapper: {
 		flex: 1,
@@ -40,6 +41,10 @@ const styles = StyleSheet.create({
 		color: '#000000',
         fontSize: 20,
 		textAlign: 'center',
+	},
+	image: {
+		width: 250,
+		height: 250,
 	},
 	//screenHeader: {
 	//	marginTop: 1,

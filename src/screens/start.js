@@ -9,6 +9,8 @@ import React, { useState } from 'react';
 import { ContentText, Header, Main, NavButton, ModalButton, Wrapper } from '../components/structure.js';
 // import default app styles
 import { styles } from '../styles/styles.js';
+import { Image, View } from 'react-native';
+import { ImageResizeMode } from 'react-native';
 
 const StartScreen = props => {
 	// modal containing questonare for new budget
@@ -22,7 +24,15 @@ const StartScreen = props => {
 				<ContentText style={styles.startHeading}>
 					Welcome to your Budget!
 				</ContentText>
-				
+				<View style={{
+					alignItems: 'center',
+     			 }}>
+					<Image 
+						style={styles.image}
+						resizeMode="contain"
+						source={require('./images/Icon.png')} 	
+					/>
+				</View>
 				<ModalButton 
 					color="#000000"
           			screenName="+ New Budget" 
