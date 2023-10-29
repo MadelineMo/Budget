@@ -3,7 +3,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 
-// default style
 const styles = StyleSheet.create({
 	wrapper: {
 		flex: 1,
@@ -15,22 +14,33 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: '#3F5173',
     },
-    defaultHeading: {
-        fontSize: 26,
+    //defaultHeading: {
+      //  fontSize: 26,
+    //},
+    //mainHeading: {
+      //  color: '#EFD5F2',
+        //fontWeight: '400',
+    //},
+    startHeading: { // heading for start screen
+        color: '#000000',
+        fontSize: 32,
+		textAlign: 'center',
+		padding: 10,
     },
-    mainHeading: {
-        color: '#EFD5F2',
-        fontWeight: '400',
-    },
-    subHeading: {
-        color: '#7AA3D9',
-        fontSize: 16
-    },
-	screenHeader: {
-		marginTop: 1,
-		padding: 15,
-		backgroundColor: '#F70044',
+	startButton: {
+		alignItems:'center',
+		backgroundColor:'#11cd86'
 	},
+	buttonText: {
+		fontSize: 26,
+		fontWeight: 'bold',
+		color:'#EFD5F2',
+	},
+	//screenHeader: {
+	//	marginTop: 1,
+	//	padding: 15,
+	//	backgroundColor: '#F70044',
+	//},
 	header: {
 		marginTop: 5,
 		marginBottom: 5,
@@ -71,7 +81,7 @@ const styles = StyleSheet.create({
 		marginBottom: 5,
 		fontSize: 18,
 		fontWeight: '300',	
-	},
+	}
 });
 
 export {

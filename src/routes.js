@@ -9,15 +9,14 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-/* import required screen components
-*  - home screen
-*  - basic screen 
-*  - modal screen
-*  - ...
-*/
+// import all screens
 import HomeScreen from './screens/home.js';
 import BasicScreen from './screens/basic_screen.js';
-import ModalScreen from './screens/modal_screen.js';
+import StartScreen from './screens/start.js';
+// import all modals
+import OldBudgetModalScreen from './screens/saved_budgets_modal.js';
+import NewBudget from './screens/questionare_modal.js';
+
 
 // create object for stack navigator
 const Stack = createNativeStackNavigator();
@@ -31,7 +30,7 @@ const Routes = props => {
 
 		<NavigationContainer>
 			<Stack.Navigator 
-        		initialRouteName="Home"
+        		initialRouteName="Start"
         		screenOptions={{
           			headerStyle: {
            			 	backgroundColor: '#4c566a',
@@ -44,25 +43,42 @@ const Routes = props => {
       		>
 				<Stack.Group>
 					<Stack.Screen 
-						name="Home"
-						component={HomeScreen} 
-						options={{ 
-							title: 'Home', 
-						}}
+						name="Start"
+						component={StartScreen} 
+						options={{
+							headerStyle: {
+							  backgroundColor: '#f70044',
+							},
+							headerTitleStyle: {
+							  fontWeight: '600',
+							  fontSize: 24,
+							},
+				  }}
 					/>
 					<Stack.Screen 
-						name="Screen1" 
-						component={BasicScreen} 
+						name="Home" 
+						component={HomeScreen} 
 						options={{
-							title: 'Details'
+							title: 'Home'
 						}}
 					/>
+
 				</Stack.Group>
 				<Stack.Group>
 					<Stack.Screen
-						name="ModalTest"
-						component={ModalScreen}
+						name="SavedBudget"
+						component={OldBudgetModalScreen}
 						options={{
+							title: 'New Budget',
+							animation: 'slide_from_bottom',
+							presentation: 'modal'
+						}}
+					/>
+					<Stack.Screen
+						name="NewBudget"
+						component={NewBudget}
+						options={{
+							title: 'New Budget',
 							animation: 'slide_from_bottom',
 							presentation: 'modal'
 						}}

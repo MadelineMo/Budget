@@ -22,9 +22,10 @@ const styles = StyleSheet.create({
 	header: {
 		marginTop: 5,
 		marginBottom: 5,
-		color: '#4c566a',
+		color: '#000000',
 		fontSize: 20,
 		fontWeight: '400',
+		alignItems: 'center',
 	},
 	h1: {
 		color: '#eceff4',
