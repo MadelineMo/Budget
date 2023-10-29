@@ -36,6 +36,11 @@ const styles = StyleSheet.create({
 		fontWeight: 'bold',
 		color:'#EFD5F2',
 	},
+	homeHeading: {
+		color: '#000000',
+        fontSize: 20,
+		textAlign: 'center',
+	},
 	//screenHeader: {
 	//	marginTop: 1,
 	//	padding: 15,

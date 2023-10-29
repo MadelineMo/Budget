@@ -59,7 +59,13 @@ const Routes = props => {
 						name="Home" 
 						component={HomeScreen} 
 						options={{
-							title: 'Home'
+							headerStyle: {
+								backgroundColor: '#056fa8',
+							  },
+							  headerTitleStyle: {
+								fontWeight: '600',
+								fontSize: 24,
+							  },
 						}}
 					/>
 
@@ -80,7 +86,14 @@ const Routes = props => {
 						options={{
 							title: 'New Budget',
 							animation: 'slide_from_bottom',
-							presentation: 'modal'
+							presentation: 'modal',
+							headerStyle: {
+								backgroundColor: '#11cd86',
+							  },
+							  headerTitleStyle: {
+								fontWeight: '600',
+								fontSize: 24,
+							  },
 						}}
 					/>
 				</Stack.Group>	
