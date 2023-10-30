@@ -1,7 +1,7 @@
 //all styles (think CSS)
 
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, StatusBar, } from 'react-native';
 
 
 const styles = StyleSheet.create({
@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
 		marginTop: 15,
 		color: '#3b4252',
 		fontSize: 20,
+		alignContent:'center',
 	},
 	defaultContent: {
 		padding: 15,
@@ -94,16 +95,18 @@ const styles = StyleSheet.create({
 		fontWeight: '300',	
 	},
 
-	newButtonContainer:{
+	newButtonContainer:{ // start screen button for questionare
 		margin: 20,
 		backgroundColor:'#11cd86'
 	},
-	oldButtonContainer:{
+	oldButtonContainer:{ // start screen button for home screen
 		margin: 20,
 		backgroundColor:'#056fa8'
 	},
-
-
+	questionText:{
+		color:'black',
+		textAlign:'center',
+	},
 });
 
 export {

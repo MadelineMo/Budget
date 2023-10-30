@@ -10,9 +10,10 @@
 // import react js base library
 import React, { useState } from 'react';
 // import custom components
-import { ContentText, Header, Main, NavButton, ModalButton, Wrapper } from '../components/structure.js';
+import { ContentText, Header, Main, NavButton, Wrapper } from '../components/structure.js';
 // import default app styles
-import { styles } from '../styles/default.js';
+import { styles } from '../styles/styles.js';
+import { Image, Pressable, View } from 'react-native';
 
 const NewBudget = props => {
 	// load link to home screen
@@ -21,16 +22,22 @@ const NewBudget = props => {
 	//dismis modal when start budget is pressed??
 	dismissModal = () => navigation.dismissModal(this.props.NewBudget);
 	return (
+		<Wrapper>
 		<Main style={styles.main}>
-			<ContentText style={styles.defaultText}>
-				new budget questionare
-			</ContentText>
-			<NavButton
-					color="#888888"
-          			screenName="Save Budget" 
-					onPress={loadRouteHome}
-        		/>
-		</Main>
+			<View style={{alignItems: 'center'}}>
+				<ContentText style={styles.questionText}>
+					new budget questionare
+				</ContentText>
+			</View>
+			<View style={styles.newButtonContainer}>
+				<NavButton
+						color="white"
+						screenName="Save Budget" 
+						onPress={loadRouteHome}
+				/>
+				</View>
+		</Main>	
+		</Wrapper>
 	)
 
 };

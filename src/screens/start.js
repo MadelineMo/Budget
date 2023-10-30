@@ -6,11 +6,10 @@
 // import react js base library
 import React, { useState } from 'react';
 // import custom components
-import { ContentText, Header, Main, NavButton, ModalButton, Wrapper } from '../components/structure.js';
+import { ContentText, Main, NavButton, ModalButton, Wrapper,} from '../components/structure.js';
 // import default app styles
 import { styles } from '../styles/styles.js';
 import { Image, Pressable, View } from 'react-native';
-import { ImageResizeMode } from 'react-native';
 
 const StartScreen = props => {
 	// modal containing questonare for new budget
@@ -22,7 +21,7 @@ const StartScreen = props => {
 		<Wrapper style={styles.wrapper}>
 			<Main style={styles.main}>
 				<ContentText style={styles.startHeading}>
-					Welcome to your Budget!
+					Welcome to your Budget
 				</ContentText>
 				<View style={{alignItems: 'center'}}>
 					<Image 
@@ -36,14 +35,12 @@ const StartScreen = props => {
 						color="white"
 						screenName="+ New Budget" 
 						onPress={newModal}
-						backgroundColor='#11cd86'
 					/>
 				</View>
 				<View style={styles.oldButtonContainer}>
 					<NavButton
 						color="white"
 						screenName="- Saved Budget"
-						backgroundColor='#11cd86'
 						onPress={savedBudget}
 					/>	
 				</View>

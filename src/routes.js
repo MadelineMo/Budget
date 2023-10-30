@@ -30,24 +30,21 @@ const Routes = props => {
 
 		<NavigationContainer>
 			<Stack.Navigator 
-        		initialRouteName="Start"
-        		screenOptions={{
-          			headerStyle: {
-           			 	backgroundColor: '#4c566a',
-          			},  
-          			headerTintColor: '#EEEEEE',
+        		initialRouteName="New"
+        		screenOptions={{ 
+          			headerTintColor: '#EEEEEE', // white text
           			headerTitleStyle: {
-            			fontWeight: '300',
+            			fontWeight: '300', // boldness
           			},
         		}}
       		>
 				<Stack.Group>
 					<Stack.Screen 
-						name="Start"
+						name="New"
 						component={StartScreen} 
 						options={{
 							headerStyle: {
-							  backgroundColor: '#f70044',
+							  backgroundColor: '#f70044', // red
 							},
 							headerTitleStyle: {
 							  fontWeight: '600',
@@ -60,7 +57,7 @@ const Routes = props => {
 						component={HomeScreen} 
 						options={{
 							headerStyle: {
-								backgroundColor: '#056fa8',
+								backgroundColor: '#056fa8', // blue
 							  },
 							  headerTitleStyle: {
 								fontWeight: '600',
