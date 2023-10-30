@@ -92,7 +92,18 @@ const styles = StyleSheet.create({
 		marginBottom: 5,
 		fontSize: 18,
 		fontWeight: '300',	
-	}
+	},
+
+	newButtonContainer:{
+		margin: 20,
+		backgroundColor:'#11cd86'
+	},
+	oldButtonContainer:{
+		margin: 20,
+		backgroundColor:'#056fa8'
+	},
+
+
 });
 
 export {

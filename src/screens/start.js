@@ -31,18 +31,22 @@ const StartScreen = props => {
 						source={require('./images/Icon.png')} 	
 					/>
 				</View>
-				<ModalButton 
-					color="#000000"
-          			screenName="+ New Budget" 
-					onPress={newModal}
-					backgroundColor='#11cd86'
-                />
-                <NavButton
-                    color="#000000"
-                    screenName="- Saved Budget"
-					backgroundColor='#11cd86'
-                    onPress={savedBudget}
-                />
+				<View style={styles.newButtonContainer}>
+					<ModalButton 
+						color="white"
+						screenName="+ New Budget" 
+						onPress={newModal}
+						backgroundColor='#11cd86'
+					/>
+				</View>
+				<View style={styles.oldButtonContainer}>
+					<NavButton
+						color="white"
+						screenName="- Saved Budget"
+						backgroundColor='#11cd86'
+						onPress={savedBudget}
+					/>	
+				</View>
 			</Main>
 		</Wrapper>
 
