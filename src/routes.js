@@ -29,6 +29,7 @@ const Routes = props => {
 
 		<NavigationContainer>
 			<Stack.Navigator 
+			// start on 'new' screen to select new or old budgets
         		initialRouteName="New"
         		screenOptions={{ 
           			headerTintColor: '#EEEEEE', // white text
@@ -39,7 +40,7 @@ const Routes = props => {
       		>
 				<Stack.Group>
 					<Stack.Screen 
-						name="New"
+						name="New" // start screen
 						component={StartScreen} 
 						options={{
 							headerStyle: {
@@ -52,7 +53,7 @@ const Routes = props => {
 				  }}
 					/>
 					<Stack.Screen 
-						name="Home" 
+						name="Home" // home screen 
 						component={HomeScreen} 
 						options={{
 							headerStyle: {
@@ -67,8 +68,8 @@ const Routes = props => {
 
 				</Stack.Group>
 				<Stack.Group>
-					<Stack.Screen
-						name="SavedBudget"
+					<Stack.Screen // not yet in use
+						name="SavedBudget" // ideally shows all previous saved budgets
 						component={OldBudgetModalScreen}
 						options={{
 							title: 'New Budget',
@@ -77,7 +78,7 @@ const Routes = props => {
 						}}
 					/>
 					<Stack.Screen
-						name="NewBudget"
+						name="NewBudget" // new budget questionnaire
 						component={NewBudget}
 						options={{
 							title: 'New Budget',

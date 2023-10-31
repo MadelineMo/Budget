@@ -12,9 +12,10 @@ import { styles } from '../styles/styles.js';
 import { Image, Pressable, View } from 'react-native';
 
 const StartScreen = props => {
-	// modal containing questonare for new budget
+	// screen containing questonare for new budget
     newModal = () => props.navigation.navigate('NewBudget');
-    // modal containing links to saved budgets
+    // modal containing links to saved budgets !!not in use
+	// home screen with saved budget
 	savedBudget = () => props.navigation.navigate('Home');
 
 	return (
@@ -25,20 +26,20 @@ const StartScreen = props => {
 				</ContentText>
 				<View style={{alignItems: 'center'}}>
 					<Image 
-						style={styles.logoImage}
+						style={styles.logoImage} // logo 
 						resizeMode="contain"
 						source={require('./images/Icon.png')} 	
 					/>
 				</View>
 				<View style={styles.newButtonContainer}>
-					<ModalButton 
+					<ModalButton // new budget button
 						color="white"
 						screenName="+ New Budget" 
 						onPress={newModal}
 					/>
 				</View>
 				<View style={styles.oldButtonContainer}>
-					<NavButton
+					<NavButton // old budget button
 						color="white"
 						screenName="- Saved Budget"
 						onPress={savedBudget}
