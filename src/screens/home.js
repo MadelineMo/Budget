@@ -24,7 +24,7 @@ const HomeScreen = props => {
 				/>
 			</View>
 			<ContentText style={styles.homeHeading}>
-				You have saved:
+				Savings Goal:
 				
 			</ContentText>
 		</ScrollView>

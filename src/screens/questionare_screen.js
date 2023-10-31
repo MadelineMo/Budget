@@ -13,7 +13,7 @@ import React, { useState } from 'react';
 import { ContentText, Header, Main, NavButton, Wrapper } from '../components/structure.js';
 // import default app styles
 import { styles } from '../styles/styles.js';
-import { Image, Pressable, View, ScrollView, SafeAreaView } from 'react-native';
+import { Image, Pressable, View, ScrollView, SafeAreaView, TextInput } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown'
 
 
@@ -22,7 +22,7 @@ const NewBudget = props => {
 	loadRouteHome = () => props.navigation.navigate('Home');
     // add links within the page to jump to each question
 	const dates = ["Weekly", "Monthly"];
-	const[time, setTime] = useState('null');
+	const[time, setTime] = useState('Monthly');
 	return (
 		<Wrapper style={styles.wrapper}>
 		<Main style={styles.main}>
@@ -32,7 +32,7 @@ const NewBudget = props => {
 				<Image 
 					style={styles.questionImage}
 					resizeMode="contain"
-					source={require('./images/Icon.png')} 	
+					source={require('./images/time.png')} 	
 				/>
 				<ContentText style={styles.newHeading}>
 					How frequently would you like to budget?
@@ -73,6 +73,10 @@ const NewBudget = props => {
 				<ContentText style={styles.newHeading}>
 					How much is your {time} income?
 				</ContentText>
+				<TextInput
+					style={styles.input}
+					placeholder='$......'
+				/>
 				<View style={styles.nextButton}>
 					<Pressable
 						color="white"
@@ -83,11 +87,15 @@ const NewBudget = props => {
 				<Image 
 					style={styles.questionImage}
 					resizeMode="contain"
-					source={require('./images/expensesIcon.png')} 	
+					source={require('./images/income.png')} 	
 				/>
 				<ContentText style={styles.newHeading}>
 					How much are your {time} expenses?
 				</ContentText>
+				<TextInput
+					style={styles.input}
+					placeholder='$......'
+				/>
 				<View style={styles.nextButton}>
 					<Pressable
 						color="white"

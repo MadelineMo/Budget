@@ -94,6 +94,12 @@ const styles = StyleSheet.create({
 		margin: 20,
 		backgroundColor:'#11cd86'
 	},
+	input:{
+		height: 40,
+		margin: 12,
+		borderWidth: 1,
+		padding: 10,
+	},
 
 });
 
