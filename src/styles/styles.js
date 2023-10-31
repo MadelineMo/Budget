@@ -107,6 +107,11 @@ const styles = StyleSheet.create({
 		color:'black',
 		textAlign:'center',
 	},
+	//scroll view
+	scrollView: { // https://reactnative.dev/docs/scrollview
+		paddingTop: StatusBar.currentHeight,
+	},
+
 });
 
 export {

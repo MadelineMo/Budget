@@ -15,7 +15,7 @@ import BasicScreen from './screens/basic_screen.js';
 import StartScreen from './screens/start.js';
 // import all modals
 import OldBudgetModalScreen from './screens/saved_budgets_modal.js';
-import NewBudget from './screens/questionare_modal.js';
+import NewBudget from './screens/questionare_screen.js';
 
 
 // create object for stack navigator
@@ -82,8 +82,6 @@ const Routes = props => {
 						component={NewBudget}
 						options={{
 							title: 'New Budget',
-							animation: 'slide_from_bottom',
-							presentation: 'modal',
 							headerStyle: {
 								backgroundColor: '#11cd86',
 							  },
