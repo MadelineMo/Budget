@@ -25,7 +25,7 @@ const StartScreen = props => {
 				</ContentText>
 				<View style={{alignItems: 'center'}}>
 					<Image 
-						style={styles.image}
+						style={styles.logoImage}
 						resizeMode="contain"
 						source={require('./images/Icon.png')} 	
 					/>

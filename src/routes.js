@@ -11,11 +11,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // import all screens
 import HomeScreen from './screens/home.js';
-import BasicScreen from './screens/basic_screen.js';
 import StartScreen from './screens/start.js';
+import NewBudget from './screens/questionare_screen.js';
 // import all modals
 import OldBudgetModalScreen from './screens/saved_budgets_modal.js';
-import NewBudget from './screens/questionare_screen.js';
 
 
 // create object for stack navigator

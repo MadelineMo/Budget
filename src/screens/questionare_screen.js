@@ -14,27 +14,87 @@ import { ContentText, Header, Main, NavButton, Wrapper } from '../components/str
 // import default app styles
 import { styles } from '../styles/styles.js';
 import { Image, Pressable, View, ScrollView, SafeAreaView } from 'react-native';
+import SelectDropdown from 'react-native-select-dropdown'
 
 
 const NewBudget = props => {
 	// load link to home screen
 	loadRouteHome = () => props.navigation.navigate('Home');
     // add links within the page to jump to each question
+	const dates = ["Weekly", "Monthly"];
+	const[time, setTime] = useState('null');
 	return (
-		<Wrapper>
+		<Wrapper style={styles.wrapper}>
 		<Main style={styles.main}>
 		<SafeAreaView style={styles.scrollView}>
 		<ScrollView>
 			<View style={{alignItems: 'center'}}>
-					<ContentText style={styles.questionText}>
-					You have saved:
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					\Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-				
-					</ContentText>
+				<Image 
+					style={styles.questionImage}
+					resizeMode="contain"
+					source={require('./images/Icon.png')} 	
+				/>
+				<ContentText style={styles.newHeading}>
+					How frequently would you like to budget?
+				</ContentText>
+				<SelectDropdown // https://www.npmjs.com/package/react-native-select-dropdown
+					data={dates}
+					style={styles.dropdown}
+					onSelect={(selectedItem, index) => {
+						console.log(selectedItem, index)
+					}}
+					buttonTextAfterSelection={(selectedItem, index) => {
+						// if then to change case didnt work (stuck on weekly)
+						//if(selectedItem='Weekly'){
+						//	setTime('weekly')
+						//}
+						//else if(selectedItem='Monthly'){
+						//	setTime('monthly')
+						//}
+						setTime(selectedItem)
+						return selectedItem
+					}}
+					rowTextForSelection={(item, index) => {
+						return item
+					}}
+				/>
+				<View style={styles.nextButton}>
+					<Pressable
+						color="white"
+						screenName="Next"
+						//onPress={}
+					/>	
+				</View>
+				<Image 
+					style={styles.questionImage}
+					resizeMode="contain"
+					source={require('./images/expensesIcon.png')} 	
+				/>
+				<ContentText style={styles.newHeading}>
+					How much is your {time} income?
+				</ContentText>
+				<View style={styles.nextButton}>
+					<Pressable
+						color="white"
+						screenName="Next"
+						//onPress={}
+					/>	
+				</View>
+				<Image 
+					style={styles.questionImage}
+					resizeMode="contain"
+					source={require('./images/expensesIcon.png')} 	
+				/>
+				<ContentText style={styles.newHeading}>
+					How much are your {time} expenses?
+				</ContentText>
+				<View style={styles.nextButton}>
+					<Pressable
+						color="white"
+						screenName="Next"
+						//onPress={}
+					/>	
+				</View>
 			</View>
 			<View style={styles.newButtonContainer}>
 				<NavButton
@@ -44,7 +104,6 @@ const NewBudget = props => {
 				/>
 			</View>
 		</ScrollView>
-			
 		</SafeAreaView>
 		</Main>	
 		</Wrapper>
