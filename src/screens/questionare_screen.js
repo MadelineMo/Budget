@@ -44,13 +44,6 @@ const NewBudget = props => {
 						console.log(selectedItem, index)
 					}}
 					buttonTextAfterSelection={(selectedItem, index) => {
-						// if then to change case didnt work (stuck on weekly)
-						//if(selectedItem='Weekly'){
-						//	setTime('weekly')
-						//}
-						//else if(selectedItem='Monthly'){
-						//	setTime('monthly')
-						//}
 						setTime(selectedItem)
 						return selectedItem
 					}}

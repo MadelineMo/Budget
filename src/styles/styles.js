@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
 	},
 	main: {
 		marginTop: 15,
-		color: '#3b4252',
+		color: '#3b4252', 
 		fontSize: 20,
 		alignContent:'center',
 	},
@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     },
 	startButton: {
 		alignItems:'center',
-		backgroundColor:'#11cd86'
+		backgroundColor:'#11cd86' // green
 	},
 	logoImage: { // start screen logo
 		margin: 20,
@@ -40,31 +40,36 @@ const styles = StyleSheet.create({
 	},
 	newButtonContainer:{ // start screen button for questionare
 		margin: 20,
-		backgroundColor:'#11cd86'
+		backgroundColor:'#11cd86' // green
 	},
 	oldButtonContainer:{ // start screen button for home screen
 		margin: 20,
 		backgroundColor:'#056fa8'
 	},
+	
 
 	// home screen
 	homeHeading: { 
 		color: '#000000',
-        fontSize: 20,
+        fontSize: 30,
 		textAlign: 'center',
+		paddingTop: 90,
+		paddingBottom: 0,
 	},
-	// unknown
-	defaultContent: {
-		padding: 15,
+	 homeTab:{ // start screen button for questionare
+		margin: 40,
+		backgroundColor:'#056fa8', // blue
 	},
-	defaultText: {
-		marginTop: 5,
-		marginBottom: 5,
-		fontSize: 18,
-		fontWeight: '300',	
+	homeAddButton:{
+		margin: 0,
+		backgroundColor: '#11CD86',
+		padding: 0,
+		width: 40,
+		height: 40,
+		color: '#000000',
 	},
 	
-	// new budget screen
+	// new budget screen - questionnaire
 	newHeading: { 
 		color: '#000000',
         fontSize: 20,
@@ -76,6 +81,7 @@ const styles = StyleSheet.create({
 		textAlign:'center',
 	},
 	dropdown:{
+		color: '#11cd86',
 		backgroundColor: '#11cd86'
 		//figure out how style works for this
 	},
@@ -93,6 +99,20 @@ const styles = StyleSheet.create({
 	backButton:{
 		margin: 20,
 		backgroundColor:'#11cd86'
+	},
+	input:{
+		height: 40,
+		margin: 12,
+		borderWidth: 1,
+		padding: 10,
+	},
+	
+	// new catagory
+	catagoryText:{
+		marginTop: 5,
+		marginBottom: 5,
+		fontSize: 20,
+		fontWeight: '300',	
 	},
 	input:{
 		height: 40,

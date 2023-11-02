@@ -13,9 +13,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './screens/home.js';
 import StartScreen from './screens/start.js';
 import NewBudget from './screens/questionare_screen.js';
-// import all modals
-import OldBudgetModalScreen from './screens/saved_budgets_modal.js';
+import OldBudgetScreen from './screens/saved_budgets_modal.js';
+import ExpenseScreen from './screens/expense_screen.js';
 
+// import modals
+import CatagoryModal from './screens/add_catagory_modal.js';
 
 // create object for stack navigator
 const Stack = createNativeStackNavigator();
@@ -65,16 +67,18 @@ const Routes = props => {
 							  },
 						}}
 					/>
-
-				</Stack.Group>
-				<Stack.Group>
 					<Stack.Screen // not yet in use
 						name="SavedBudget" // ideally shows all previous saved budgets
-						component={OldBudgetModalScreen}
+						component={OldBudgetScreen}
 						options={{
-							title: 'New Budget',
-							animation: 'slide_from_bottom',
-							presentation: 'modal'
+							title: 'Saved Budgets',
+							headerStyle: {
+								backgroundColor: '#11cd86',
+							  },
+							  headerTitleStyle: {
+								fontWeight: '600',
+								fontSize: 24,
+							  },
 						}}
 					/>
 					<Stack.Screen
@@ -91,6 +95,38 @@ const Routes = props => {
 							  },
 						}}
 					/>
+					<Stack.Screen
+						name="Expense" 
+						component={ExpenseScreen}
+						options={{
+							title: 'Expense', // ideally would be changed based on saved name at creation
+							headerStyle: {
+								backgroundColor: '#11cd86',
+							  },
+							  headerTitleStyle: {
+								fontWeight: '600',
+								fontSize: 24,
+							  },
+						}}
+					/>
+					<Stack.Screen 
+						name="NewCatagory"
+						component={CatagoryModal}
+						options={{
+							title: "New Catagory",
+							animation: 'slide_from_bottom',
+							presentation: 'modal',
+							headerStyle: {
+								backgroundColor: '#11cd86',
+							  },
+							  headerTitleStyle: {
+								fontWeight: '600',
+								fontSize: 24,
+							  },
+						}}
+					/>
+
+					
 				</Stack.Group>	
       		</Stack.Navigator>
 		</NavigationContainer>
