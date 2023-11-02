@@ -18,6 +18,7 @@ import ExpenseScreen from './screens/expense_screen.js';
 
 // import modals
 import CatagoryModal from './screens/add_catagory_modal.js';
+import InvoiceModal from './screens/add_invoice_modal.js';
 
 // create object for stack navigator
 const Stack = createNativeStackNavigator();
@@ -36,7 +37,7 @@ const Routes = props => {
         		screenOptions={{ 
           			headerTintColor: '#EEEEEE', // white text
           			headerTitleStyle: {
-            			fontWeight: '300', // boldness
+            			fontWeight: 300, // boldness
           			},
         		}}
       		>
@@ -49,7 +50,6 @@ const Routes = props => {
 							  backgroundColor: '#f70044', // red
 							},
 							headerTitleStyle: {
-							  fontWeight: '600',
 							  fontSize: 24,
 							},
 				  }}
@@ -62,7 +62,6 @@ const Routes = props => {
 								backgroundColor: '#056fa8', // blue
 							  },
 							  headerTitleStyle: {
-								fontWeight: '600',
 								fontSize: 24,
 							  },
 						}}
@@ -76,7 +75,6 @@ const Routes = props => {
 								backgroundColor: '#11cd86',
 							  },
 							  headerTitleStyle: {
-								fontWeight: '600',
 								fontSize: 24,
 							  },
 						}}
@@ -90,7 +88,6 @@ const Routes = props => {
 								backgroundColor: '#11cd86',
 							  },
 							  headerTitleStyle: {
-								fontWeight: '600',
 								fontSize: 24,
 							  },
 						}}
@@ -104,7 +101,6 @@ const Routes = props => {
 								backgroundColor: '#11cd86',
 							  },
 							  headerTitleStyle: {
-								fontWeight: '600',
 								fontSize: 24,
 							  },
 						}}
@@ -117,10 +113,24 @@ const Routes = props => {
 							animation: 'slide_from_bottom',
 							presentation: 'modal',
 							headerStyle: {
+								backgroundColor: '#056fa8',
+							  },
+							  headerTitleStyle: {
+								fontSize: 24,
+							  },
+						}}
+					/>
+					<Stack.Screen 
+						name="AddInvoice"
+						component={InvoiceModal}
+						options={{
+							title: "Add Invoice",
+							animation: 'slide_from_bottom',
+							presentation: 'modal',
+							headerStyle: {
 								backgroundColor: '#11cd86',
 							  },
 							  headerTitleStyle: {
-								fontWeight: '600',
 								fontSize: 24,
 							  },
 						}}

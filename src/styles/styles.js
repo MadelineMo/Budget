@@ -121,6 +121,31 @@ const styles = StyleSheet.create({
 		padding: 10,
 	},
 
+	//expense screen
+	addExpense:{ // add expense button 
+		alignItems:'center',
+		backgroundColor:'#11cd86', // green
+		margin: 20,
+	},
+	total:{
+		marginTop: 5,
+		marginBottom: 5,
+		fontSize: 30,
+		fontWeight: 300,
+	},
+	totalNumber:{
+		marginTop: 5,
+		marginBottom: 10,
+		fontSize: 40,
+		fontWeight: 300,
+		color:'#11cd86' ,
+	},
+	listText:{
+		fontSize: 20,
+		fontWeight: 200,
+		margin: 10,
+	}
+
 });
 
 export {
