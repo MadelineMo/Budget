@@ -1,1 +1,0 @@
-// display individual expense catagory 

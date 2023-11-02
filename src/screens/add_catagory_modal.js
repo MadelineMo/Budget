@@ -10,6 +10,7 @@ import { styles } from '../styles/styles.js';
 import { Image, Pressable, View, ScrollView, SafeAreaView, Modal, ImageBackground, TextInput} from 'react-native';
 
 const CatagoryModal = props => {
+	home = () => props.navigation.navigate('Home')
 	return (
 		<Main style={styles.main}>
 			<ContentText style={styles.catagoryText}>
@@ -25,7 +26,14 @@ const CatagoryModal = props => {
             <TextInput
 					style={styles.input}
 					placeholder='$......'
+			/>
+			<View style={styles.newButtonContainer}>
+				<ModalButton // new budget button
+					color="white"
+					screenName="Save" 
+					onPress={home}
 				/>
+			</View>
 		</Main>
 	)
 
