@@ -27,21 +27,26 @@ import OldBudgetScreen from './screens/saved_budgets_modal.js';
 const Drawer = createDrawerNavigator();
 const HomeStack = createNativeStackNavigator();
 const NewStack = createNativeStackNavigator();
-const OldStack = createNativeStackNavigator();
 
 const HomeStackScreen = () => { // premade budget - should actually start with budget selection screen 
 	return (
-		<HomeStack.Navigator>
+		<HomeStack.Navigator
+			initialRouteName="OldBudget"
+			screenOptions={{ 
+				headerTintColor: '#EEEEEE', // white text
+			}}
+		>
 			<HomeStack.Screen 
-				name="OldBudget" // new budget questionnaire
+				name="OldBudget" // saved budgets list
 				component={OldBudgetScreen}
 				options={{
 					title: 'Saved Budget',
 					headerStyle: {
-						backgroundColor: '#11cd86',
+						backgroundColor: '#11cd86', // green
 					  },
 					  headerTitleStyle: {
 						fontSize: 24,
+						color: '#ffffff' // white
 					  },
 				}}
 			/>
@@ -49,7 +54,13 @@ const HomeStackScreen = () => { // premade budget - should actually start with b
 						name="Home" // home screen - change name based on budget? 
 						component={HomeScreen} 
 						options={{ 
-							headerShown: false
+							headerStyle: {
+								backgroundColor: '#056fa8', // blue
+							  },
+							  headerTitleStyle: {
+								fontSize: 24,
+								color: '#ffffff'
+							  },
 						}}
 					/>
 			<HomeStack.Screen 
@@ -60,11 +71,11 @@ const HomeStackScreen = () => { // premade budget - should actually start with b
 							animation: 'slide_from_bottom',
 							presentation: 'modal',
 							headerStyle: {
-								backgroundColor: '#056fa8',
+								backgroundColor: '#056fa8', //blue
 							  },
 							  headerTitleStyle: {
 								fontSize: 24,
-								color: '#fff'
+								color: '#ffffff' //white
 							  },
 						}}
 					/>
@@ -74,11 +85,11 @@ const HomeStackScreen = () => { // premade budget - should actually start with b
 						options={{
 							title: 'Expense', 
 							headerStyle: {
-								backgroundColor: '#11cd86',
+								backgroundColor: '#11cd86', //green
 							  },
 							  headerTitleStyle: {
 								fontSize: 24,
-								color: '#fff'
+								color: '#ffffff' //white
 							  },
 						}}
 					/>
@@ -90,11 +101,11 @@ const HomeStackScreen = () => { // premade budget - should actually start with b
 							animation: 'slide_from_bottom',
 							presentation: 'modal',
 							headerStyle: {
-								backgroundColor: '#11cd86',
+								backgroundColor: '#11cd86', //green
 							  },
 							  headerTitleStyle: {
 								fontSize: 24,
-								color: '#fff'
+								color: '#ffffff' //white
 							  },
 						}}
 					/>
@@ -102,26 +113,6 @@ const HomeStackScreen = () => { // premade budget - should actually start with b
 	);
 };
 
-const OldStackScreen = () => { // premade budget - should actually start with budget selection screen 
-	return (
-		<OldStack.Navigator>
-			<OldStack.Screen 
-						name="OldBudget" // new budget questionnaire
-						component={OldBudgetScreen}
-						options={{
-							title: 'New Budget',
-							headerStyle: {
-								backgroundColor: '#11cd86',
-							  },
-							  headerTitleStyle: {
-								fontSize: 24,
-							  },
-						}}
-					/>
-			
-		</OldStack.Navigator>
-	);
-};
 
 const NewStackScreen = () => { // premade budget - should actually start with budget selection screen 
 	return (
@@ -130,13 +121,7 @@ const NewStackScreen = () => { // premade budget - should actually start with bu
 						name="NewBudget" // new budget questionnaire
 						component={NewBudget}
 						options={{
-							title: 'New Budget',
-							headerStyle: {
-								backgroundColor: '#11cd86',
-							  },
-							  headerTitleStyle: {
-								fontSize: 24,
-							  },
+							headerShown: false,
 						}}
 					/>
 			
@@ -145,60 +130,52 @@ const NewStackScreen = () => { // premade budget - should actually start with bu
 };
 
 const Routes = props => {
-
 	return (
-
 		<NavigationContainer>
 			<Drawer.Navigator 
 				initialRouteName='Start'
 				screenOptions={{
-					headerTintColor: '#fff', // color of icon 
+					headerTintColor: '#fffff', // color of icon: white
 					drawerStyle: {
-						backgroundColor: '#fff',
+						backgroundColor: '#fffff', //color of menu
 					},
-					drawerActiveBackgroundColor: '#11cd86',
-					drawerActiveTintColor: '#fff',
-					drawerInactiveTintColor: '#000000',
-					/*drawerInactiveBackgroundColor: '#f4d602'*/
+					drawerActiveBackgroundColor: '#11cd86', //current tab color: green
+					drawerActiveTintColor: '#fffff', //white
+					drawerInactiveTintColor: '#000000', //black
 				}}
 			>
-				<Drawer.Screen 
-					name="Start" // start screen
-					component={StartScreen} 
-					options={{
-						headerStyle: {
-							backgroundColor: '#f70044', // red
-						},
-						headerTitleStyle: {
-							fontSize: 24,
-							color: '#fff'
-						},
-				  	}} />
-				<Drawer.Screen 
-					name="Saved Budget" // premade budget - should actually start with budget selection screen 
-					component={HomeStackScreen} 
-					options={{
-						headerStyle: {
-							backgroundColor: '#056fa8', // blue
-						  },
-						  headerTitleStyle: {
-							fontSize: 24,
-						  },
-					}}
-				/>
-				<Drawer.Screen 
-					name="New Budget" // premade budget - should actually start with budget selection screen 
-					component={NewStackScreen} 
-					options={{
-						headerStyle: {
-							backgroundColor: '#056fa8', // blue
-						  },
-						  headerTitleStyle: {
-							fontSize: 24,
-						  },
-					}}
-					/>
-					
+			<Drawer.Screen 
+				name="Start" // start screen
+				component={StartScreen} 
+				options={{
+					headerStyle: {
+						backgroundColor: '#f70044', // red
+					},
+					headerTitleStyle: {
+						fontSize: 24,
+						color: '#fffff' //white
+					},
+				}} 
+			/>
+			<Drawer.Screen 
+				name="Saved Budgets" // premade budget - should actually start with budget selection screen 
+				component={HomeStackScreen} 
+				options={{
+					headerShown: false,
+				}}
+			/>
+			<Drawer.Screen 
+				name="New Budget" 
+				component={NewStackScreen} 
+				options={{
+					headerStyle: {
+						backgroundColor: '#056fa8', // blue
+					},
+					headerTitleStyle: {
+						fontSize: 24,
+					},
+				}}
+			/>		
     		</Drawer.Navigator>
 		</NavigationContainer>
 	

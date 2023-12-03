@@ -17,6 +17,7 @@ import { Image, Pressable, View, ScrollView, SafeAreaView, TextInput } from 'rea
 import SelectDropdown from 'react-native-select-dropdown'
 
 
+
 const NewBudget = props => {
 	// load link to home screen
 	loadRouteHome = () => props.navigation.navigate('Saved Budget');
