@@ -18,6 +18,7 @@ import ExpenseScreen from './screens/expense_screen.js';
 import InvoiceModal from './screens/add_invoice_modal.js';
 import CatagoryModal from './screens/add_catagory_modal.js';
 import NewBudget from './screens/questionare_screen.js';
+import OldBudgetScreen from './screens/saved_budgets_modal.js';
 
 // instantiate navigator object 
 // - drawer usage
@@ -26,10 +27,24 @@ import NewBudget from './screens/questionare_screen.js';
 const Drawer = createDrawerNavigator();
 const HomeStack = createNativeStackNavigator();
 const NewStack = createNativeStackNavigator();
+const OldStack = createNativeStackNavigator();
 
 const HomeStackScreen = () => { // premade budget - should actually start with budget selection screen 
 	return (
 		<HomeStack.Navigator>
+			<HomeStack.Screen 
+				name="OldBudget" // new budget questionnaire
+				component={OldBudgetScreen}
+				options={{
+					title: 'Saved Budget',
+					headerStyle: {
+						backgroundColor: '#11cd86',
+					  },
+					  headerTitleStyle: {
+						fontSize: 24,
+					  },
+				}}
+			/>
 			<HomeStack.Screen 
 						name="Home" // home screen - change name based on budget? 
 						component={HomeScreen} 
@@ -84,6 +99,27 @@ const HomeStackScreen = () => { // premade budget - should actually start with b
 						}}
 					/>
 		</HomeStack.Navigator>
+	);
+};
+
+const OldStackScreen = () => { // premade budget - should actually start with budget selection screen 
+	return (
+		<OldStack.Navigator>
+			<OldStack.Screen 
+						name="OldBudget" // new budget questionnaire
+						component={OldBudgetScreen}
+						options={{
+							title: 'New Budget',
+							headerStyle: {
+								backgroundColor: '#11cd86',
+							  },
+							  headerTitleStyle: {
+								fontSize: 24,
+							  },
+						}}
+					/>
+			
+		</OldStack.Navigator>
 	);
 };
 
