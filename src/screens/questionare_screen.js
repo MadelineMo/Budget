@@ -19,7 +19,7 @@ import SelectDropdown from 'react-native-select-dropdown'
 
 const NewBudget = props => {
 	// load link to home screen
-	loadRouteHome = () => props.navigation.navigate('Home');
+	loadRouteHome = () => props.navigation.navigate('Saved Budget');
     // add links within the page to jump to each question
 	const dates = ["Weekly", "Monthly"];
 	const[time, setTime] = useState('Monthly');

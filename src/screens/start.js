@@ -16,7 +16,7 @@ const StartScreen = props => {
     newModal = () => props.navigation.navigate('NewBudget');
     // modal containing links to saved budgets !!not in use
 	// home screen with saved budget
-	savedBudget = () => props.navigation.navigate('SavedBudget');
+	savedBudget = () => props.navigation.navigate('Home');
 
 	return (
 		<Wrapper style={styles.wrapper}>
