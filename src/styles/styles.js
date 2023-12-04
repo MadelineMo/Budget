@@ -91,20 +91,20 @@ const styles = StyleSheet.create({
 		width: 250,
 		height: 250,
 	},
-	nextButton:{
-		margin: 20,
-		backgroundColor:'#11cd86',
-		paddingBottom:100,
-	},
-	backButton:{
-		margin: 20,
-		backgroundColor:'#11cd86'
-	},
 	input:{
 		height: 40,
 		margin: 12,
 		borderWidth: 1,
 		padding: 10,
+	},
+	nextButton: {
+		alignItems:'center',
+		backgroundColor:'#11cd86' // green
+	},
+	nextButtonContainer:{ //next questionare
+		margin: 20,
+		width: 200,
+		backgroundColor:'#11cd86' // green
 	},
 	
 	// new catagory
