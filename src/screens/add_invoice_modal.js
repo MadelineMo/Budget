@@ -18,41 +18,29 @@ class ListExpenses extends Component {
 		this.state = {
 			textInput: '',
 			textOutput: 'bill',
-			textValue: '100'
+			textValue: '100',
+			displayList: list,
 		};
-	}
-	clearTextInput = () => {
-		this._textInput.setNativeProps({text: ''});
-		this.setState({textOutput: '....'})
-		console.log(list)
 	}
 	setStorage = () => {
 		//get list and add to list? 
 		const add = {
-			name: this.textOutput,
-			value: this.textValue,
+			name: this.state.textOutput,
+			value: this.state.textValue,
 		}
 		list.push(add)
 		storage.set('expensesList', JSON.stringify(list))
-		console.log(JSON.stringify(list))
+		//list => this.setState({displayList})
+		//console.log(JSON.stringify(list))
 	}
-	render() {
-		return(
-			<View>
-			<View>
-				<View>
-					<Button
-						onPress={this.clearTextInput}
-						title='clear text'
-						color='#a3be8c'
-					/>
-				</View>
-			</View>
-			<View style={styles.quoteContext}>
+	/* <View style={styles.quoteContext}>
 				<Text style={styles.questionText}>
 					{this.state.textOutput}: ${this.state.textValue}
 				</Text>
-			</View>
+			</View>*/
+	render() {
+		return(
+			<View>
 			<ContentText style={styles.catagoryText}>
 				Name:
 			</ContentText>
@@ -78,6 +66,14 @@ class ListExpenses extends Component {
 					color="white"
 					screenName="Save" 
 					onPress={this.setStorage}
+					//onPress={() => {this.setStorage; this.setState({displayList})}}
+				/>
+			</View>
+			<View style={styles.exitButtonContainer}>
+				<ModalButton // new budget button
+					color="white"
+					screenName="Exit" 
+					onPress={expenses}
 				/>
 			</View>
 			</View>
@@ -87,19 +83,26 @@ class ListExpenses extends Component {
 
 const InvoiceModal = props => {
 
-	expenses = () => props.navigation.navigate('Expense')
-
+	expenses = () => props.navigation.navigate('Home')
+	const [display, setDisplay] = useState(list);
+	useEffect(() => {
+		updateDisplay();
+	})
+	const updateDisplay = () => {
+		setDisplay(list);
+	}
+	/*<View style={styles.exitButtonContainer}>
+				<ModalButton // new budget button
+					color="white"
+					screenName="re-render" 
+					onPress={updateDisplay}
+				/>
+			</View>
+			*/
 	return (
 		
 		<Main style={styles.main}>
 			<ListExpenses></ListExpenses>
-			<View style={styles.exitButtonContainer}>
-				<ModalButton // new budget button
-					color="white"
-					screenName="Exit" 
-					onPress={expenses}
-				/>
-			</View>
 			<SafeAreaView style={styles.scrollView}>
 			<ScrollView>
 			<ContentText style={styles.ScrollText}>
