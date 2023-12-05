@@ -194,7 +194,7 @@ const Routes = props => {
 				}} 
 			/>
 			<Drawer.Screen 
-				name="Saved Budgets" // premade budget - should actually start with budget selection screen 
+				name="Saved Budget" // premade budget - should actually start with budget selection screen 
 				component={HomeStackScreen} 
 				options={{
 					headerStyle: {

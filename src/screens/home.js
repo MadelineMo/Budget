@@ -33,6 +33,7 @@ const HomeScreen = props => {
 
 	}, [])
 	
+	const savings = income - max;
 	
 	// need to add link to start screen and reset stack
 	// or add menu option to go between new and old budgets 
@@ -53,14 +54,17 @@ const HomeScreen = props => {
 			{/* over lay text on image - savings centered in circle */}
 				<ImageBackground source={require('./images/temp.png')} style={styles.logoImage}>
 					<ContentText style={styles.homeHeading}>
-						Savings Total: ${max}
+						Current Savings: ${income}
 					</ContentText>
 				</ImageBackground>
+				<ContentText style={styles.homeHeading2}>
+						Projected Savings: ${savings}
+					</ContentText>
 				
 				<View style={styles.homeTab}>
 					<ModalButton // new budget button
 						color="white"
-						screenName="Expense" 
+						screenName="Expenses" 
 						onPress={expenses}
 					/>
 				</View>

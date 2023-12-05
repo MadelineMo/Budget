@@ -54,11 +54,24 @@ const styles = StyleSheet.create({
 		color: '#000000',
         fontSize: 30,
 		textAlign: 'center',
-		paddingTop: 90,
+		paddingTop: 75,
 		paddingBottom: 0,
+		paddingLeft: 40,
+		paddingRight: 40,
+	},
+	homeHeading2: { 
+		color: '#000000',
+        fontSize: 25,
+		textAlign: 'center',
+		paddingTop: 10,
+		paddingBottom: 0,
+		paddingLeft: 40,
+		paddingRight: 40,
 	},
 	 homeTab:{ // start screen button for questionare
 		margin: 40,
+		paddingLeft: 60,
+		paddingRight: 60,
 		backgroundColor:'#056fa8', // blue
 	},
 	homeAddButton:{
