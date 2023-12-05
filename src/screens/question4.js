@@ -31,11 +31,16 @@ const Question4 = props => {
 	useEffect(() => {
 		storage.set('max', expense);
 		storage.set('expensesList', JSON.stringify(list));
-		console.log('max', expense)
+		console.log('max', expense);
 	}, [expense])
 
+	/*resetList = () => {
+		storage.delete('expensesList')
+		storage.set('expensesList', JSON.stringify(list));
+	}*/
+
 	// load link to home screen
-	loadRouteHome = () => props.navigation.navigate('Saved Budgets');
+	loadRouteHome = () => props.navigation.navigate('Saved Budget');
 	return (
 		<Wrapper style={styles.wrapper}>
 		<Main style={styles.main}>
@@ -57,7 +62,7 @@ const Question4 = props => {
 				<View style={styles.nextButtonContainer}>
 					<NavButton // old budget button
 						color="white"
-						screenName="Save"
+						screenName="Next"
 						onPress={loadRouteHome}
 					/>	
 				</View>

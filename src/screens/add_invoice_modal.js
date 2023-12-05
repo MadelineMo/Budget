@@ -11,6 +11,7 @@ import { Image, Pressable, View, ScrollView, SafeAreaView, Modal, ImageBackgroun
 import { storage } from '/Users/madelinemoran/Apps/Budget/src/storage.js'
 
 const list = JSON.parse(storage.getString('expensesList'))
+const total = storage.getString('total')
 
 class ListExpenses extends Component {
 	constructor(props){
@@ -24,13 +25,15 @@ class ListExpenses extends Component {
 	}
 	setStorage = () => {
 		//get list and add to list? 
+		const newTotal = total - this.state.textValue
 		const add = {
 			name: this.state.textOutput,
 			value: this.state.textValue,
 		}
 		list.push(add)
 		storage.set('expensesList', JSON.stringify(list))
-		//list => this.setState({displayList})
+		storage.set('total', newTotal)
+		//this.setState({displayList: list})
 		//console.log(JSON.stringify(list))
 	}
 	/* <View style={styles.quoteContext}>
@@ -57,16 +60,16 @@ class ListExpenses extends Component {
             <TextInput
 					ref={component => this._textInput = component}
 					style={styles.input}
-					  placeholder={this.state.textInput}
-					  onChangeText={(textValue) => this.setState({textValue})}
-					  selectionColor='#a3be8c'
+					placeholder={this.state.textInput}
+					onChangeText={(textValue) => this.setState({textValue})}
+					selectionColor='#a3be8c'
 			/>
 			<View style={styles.saveButtonContainer}>
 				<ModalButton // new budget button
 					color="white"
 					screenName="Save" 
 					onPress={this.setStorage}
-					//onPress={() => {this.setStorage; this.setState({displayList})}}
+					//onPress={() => {this.setStorage; this.setState({displayList: list})}}
 				/>
 			</View>
 			<View style={styles.exitButtonContainer}>
@@ -109,10 +112,10 @@ const InvoiceModal = props => {
 				Saved Expenses: 
 			</ContentText>
 			<View style={styles.container}>
-      			{list.map((expense) => {
+      			{list.map((expense, index) => {
         			return (
-          				<View style={styles.item}>
-            				<Text style={styles.item}>{expense.name}: ${expense.value}</Text>
+          				<View style={styles.item} key={index}>
+            				<Text style={styles.item}> {expense.name}: ${expense.value}</Text>
           				</View>
        		 		);
       			})}

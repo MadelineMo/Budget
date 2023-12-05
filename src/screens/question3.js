@@ -18,7 +18,8 @@ const Question3 = props => {
 	// save name once state changes
 	useEffect(() => {
 		storage.set('income', income);
-		console.log('income', income)
+		storage.set('total', income);
+		console.log('income', income);
 	}, [income])
 
 	// load link to home screen

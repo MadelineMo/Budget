@@ -14,22 +14,22 @@ const HomeScreen = props => {
 
 	//state notice when name is changed
 	const [name, setName] = React.useState('Name');
-	const [time, setTime] = React.useState('30');
-	const [income, setIncome] = React.useState('1000');
-	const [max, setExpense] = React.useState('600');
+	const [income, setIncome] = React.useState('0');
+	const [max, setExpense] = React.useState('0');
+	const [total, setTotal] = React.useState('0');
 	// save name once state changes
 	useEffect(() => {
 		storeName = storage.getString('name')
 		storeIncome = storage.getString('income')
 		storeMax = storage.getString('max')
+		storeTotal = storage.getString('total')
 		
-		console.log(storeIncome)
-		console.log(storeName)
-		console.log(storeMax)
+		console.log('total',storeTotal)
 
 		setName(storeName)
 		setIncome(storeIncome)
 		setExpense(storeMax)
+		setTotal(storeTotal)
 
 	}, [])
 	
