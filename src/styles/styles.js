@@ -144,7 +144,18 @@ const styles = StyleSheet.create({
 		fontSize: 20,
 		fontWeight: 200,
 		margin: 10,
-	}
+	},
+
+	//invoice
+	container: {
+		flex: 1,
+		padding: 50,
+	},
+	item: {
+		padding: 20,
+		fontSize: 15,
+		marginTop: 5,
+	},
 
 });
 

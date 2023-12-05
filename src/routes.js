@@ -36,29 +36,16 @@ const NewStack = createNativeStackNavigator();
 const HomeStackScreen = () => { // premade budget - should actually start with budget selection screen 
 	return (
 		<HomeStack.Navigator
-			initialRouteName="Budgets"
+			initialRouteName="Home"
 			screenOptions={{ 
 				headerTintColor: '#EEEEEE', // white text
 			}}
 		>
 			<HomeStack.Screen 
-				name="Budgets" // saved budgets list
-				component={OldBudgetScreen}
-				options={{
-					headerShown: false,
-				}}
-			/>
-			<HomeStack.Screen 
 						name="Home" // home screen - change name based on budget? 
 						component={HomeScreen} 
 						options={{ 
-							headerStyle: {
-								backgroundColor: '#056fa8', // blue
-							  },
-							  headerTitleStyle: {
-								fontSize: 24,
-								color: '#ffffff'
-							  },
+							headerShown:false
 						}}
 					/>
 			<HomeStack.Screen 

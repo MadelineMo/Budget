@@ -30,7 +30,7 @@ const CatagoryModal = props => {
 			<View style={styles.newButtonContainer}>
 				<ModalButton // new budget button
 					color="white"
-					screenName="Save" 
+					screenName="return" 
 					onPress={home}
 				/>
 			</View>

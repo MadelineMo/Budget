@@ -33,23 +33,24 @@ const HomeScreen = props => {
 
 	}, [])
 	
+	
 	// need to add link to start screen and reset stack
 	// or add menu option to go between new and old budgets 
 	// ideally would populate data into a template based on which budget is active
-	expenses = () => props.navigation.navigate('Expense')
-	newCatagory = () => props.navigation.navigate('NewCatagory')
-	return (
-		<Wrapper style={styles.wrapper}>
-		<Main style={styles.main}>
-		<SafeAreaView style={styles.scrollView}>
-		<ScrollView>
-			<View style={styles.homeAddButton}>
+	expenses = () => props.navigation.navigate('AddInvoice')
+	//newCatagory = () => props.navigation.navigate('NewCatagory')
+	/* <View style={styles.homeAddButton}>
 					<ModalButton // new budget button
 						color="white"
 						screenName="+" 
 						onPress={newCatagory}
 					/>
-				</View>
+				</View>*/
+	return (
+		<Wrapper style={styles.wrapper}>
+		<Main style={styles.main}>
+		<SafeAreaView style={styles.scrollView}>
+		<ScrollView>
 			<View style={{alignItems: 'center'}}> 
 			{/* over lay text on image - savings centered in circle */}
 				<ImageBackground source={require('./images/temp.png')} style={styles.logoImage}>
@@ -65,7 +66,6 @@ const HomeScreen = props => {
 						onPress={expenses}
 					/>
 				</View>
-				
 			</View>
 		</ScrollView>
 		</SafeAreaView>

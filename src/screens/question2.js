@@ -12,7 +12,7 @@ import { storage } from '/Users/madelinemoran/Apps/Budget/src/storage.js'
 const Question2 = props => {
 
 	//state notice when name is changed
-	const [time, onChangeTime] = React.useState(30);
+	const [time, onChangeTime] = React.useState('30');
 
 	// save name once state changes
 	useEffect(() => {

@@ -7,18 +7,18 @@ import React, { useEffect, useState } from 'react';
 import { ContentText, Header, Main, Wrapper, ModalButton  } from '../components/structure.js';
 // import default app styles
 import { styles } from '../styles/styles.js';
-import { Image, Pressable, View, ScrollView, SafeAreaView, Modal, ImageBackground,} from 'react-native';
+import { Image, Pressable, View, ScrollView, SafeAreaView, Modal, ImageBackground,  RefreshControl,} from 'react-native';
 
 import { storage } from '/Users/madelinemoran/Apps/Budget/src/storage.js'
 
 const ExpenseScreen = props => {
 	//state notice when name is changed
 	const [name, setName] = React.useState('expense');
-	const [max, setExpense] = React.useState('600');
+	const [max, setExpense] = React.useState(0);
 	// save name once state changes
 	useEffect(() => {
 		storeName = storage.getString('expense')
-		storeMax = storage.getString('expense.cost')
+		storeMax = storage.getString('cost')
 		
 		console.log(storeName)
 		console.log(storeMax)
