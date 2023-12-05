@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
 		paddingTop: StatusBar.currentHeight,
 	},
 	main: {
-		marginTop: 15,
+		marginTop: 5,
 		color: '#3b4252', 
 		fontSize: 20,
 		alignContent:'center',

@@ -184,13 +184,13 @@ const Routes = props => {
 				initialRouteName='Start'
 				screenOptions={{
 					unmountOnBlur: true,
-					headerTintColor: '#ffffff', // color of icon: white
+					headerTintColor: 'white', // color of icon: white
 					drawerStyle: {
-						backgroundColor: '#fffff', //color of menu
+						backgroundColor: 'white', //color of menu
 					},
 					drawerActiveBackgroundColor: '#11cd86', //current tab color: green
-					drawerActiveTintColor: '#fffff', //white
-					drawerInactiveTintColor: '#000000', //black
+					drawerActiveTintColor: 'white', //white
+					drawerInactiveTintColor: 'black', //black
 				}}
 			>
 			<Drawer.Screen 
@@ -202,7 +202,7 @@ const Routes = props => {
 					},
 					headerTitleStyle: {
 						fontSize: 24,
-						color: '#ffffff' //white
+						color: 'white' //white
 					},
 				}} 
 			/>
@@ -215,7 +215,7 @@ const Routes = props => {
 					  },
 					  headerTitleStyle: {
 						fontSize: 24,
-						color: '#ffffff' // white
+						color: 'white' // white
 					  },
 				}}
 			/>

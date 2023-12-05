@@ -1,5 +1,5 @@
 // import react js base library
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import custom components
 import { ContentText, Header, Main, NavButton, Wrapper } from '../components/structure.js';
 // import default app styles
@@ -7,9 +7,20 @@ import { styles } from '../styles/styles.js';
 import { Image, Pressable, View, ScrollView, SafeAreaView, TextInput } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown'
 
+import { storage } from '/Users/madelinemoran/Apps/Budget/src/storage.js'
 
 
 const Question3 = props => {
+
+	//state notice when name is changed
+	const [income, onChangeIncome] = React.useState(1000);
+
+	// save name once state changes
+	useEffect(() => {
+		storage.set('income', income);
+		console.log('income', income)
+	}, [income])
+
 	// load link to home screen
 	loadRouteNext = () => props.navigation.navigate('Question 4');
 	return (
@@ -27,6 +38,8 @@ const Question3 = props => {
                 <TextInput
 					style={styles.input}
 					placeholder='$....'
+					onChangeText={onChangeIncome}
+					value={income}
 				/>
 				<View style={styles.nextButtonContainer}>
 					<NavButton // old budget button

@@ -2,14 +2,34 @@
 // should be able to add expenses to this catagory
 
 // import react js base library
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import custom components
 import { ContentText, Header, Main, Wrapper, ModalButton  } from '../components/structure.js';
 // import default app styles
 import { styles } from '../styles/styles.js';
 import { Image, Pressable, View, ScrollView, SafeAreaView, Modal, ImageBackground,} from 'react-native';
 
+import { storage } from '/Users/madelinemoran/Apps/Budget/src/storage.js'
+
 const ExpenseScreen = props => {
+	//state notice when name is changed
+	const [name, setName] = React.useState('expense');
+	const [max, setExpense] = React.useState('600');
+	// save name once state changes
+	useEffect(() => {
+		storeName = storage.getString('expense')
+		storeMax = storage.getString('expense.cost')
+		
+		console.log(storeName)
+		console.log(storeMax)
+
+		setExpense(storeMax)
+		setExpense(storeMax)
+
+	}, [])
+
+
+
 	add = () => props.navigation.navigate('AddInvoice')
 	return (
 		<Main style={styles.main}>
@@ -31,7 +51,7 @@ const ExpenseScreen = props => {
 			{/* add remove expense button */}
 			{/* list of expenses */}
 			<ContentText style={styles.listText}>
-				Electricity: $40
+				{name}: ${max}
 			</ContentText>
 			<ContentText style={styles.listText}>
 				Internet: $30
