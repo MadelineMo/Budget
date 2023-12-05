@@ -13,7 +13,7 @@ import { storage } from '/Users/madelinemoran/Apps/Budget/src/storage.js'
 const Question3 = props => {
 
 	//state notice when name is changed
-	const [income, onChangeIncome] = React.useState(1000);
+	const [income, onChangeIncome] = React.useState('1000');
 
 	// save name once state changes
 	useEffect(() => {

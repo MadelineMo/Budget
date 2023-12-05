@@ -25,16 +25,7 @@ import { storage } from '/Users/madelinemoran/Apps/Budget/src/storage.js'
 const Question4 = props => {
 	//state notice when name is changed
 	const [expense, onChangeExpense] = React.useState(500);
-	const list = [
-		{
-		  name: 'a',
-		  value: '23',
-		},
-		{
-		  name: 'b',
-		  value: '24',
-		},
-	  ];
+	const list = [];
 
 	// save name once state changes
 	useEffect(() => {

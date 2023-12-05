@@ -49,8 +49,6 @@ const HomeScreen = props => {
 	return (
 		<Wrapper style={styles.wrapper}>
 		<Main style={styles.main}>
-		<SafeAreaView style={styles.scrollView}>
-		<ScrollView>
 			<View style={{alignItems: 'center'}}> 
 			{/* over lay text on image - savings centered in circle */}
 				<ImageBackground source={require('./images/temp.png')} style={styles.logoImage}>
@@ -67,8 +65,6 @@ const HomeScreen = props => {
 					/>
 				</View>
 			</View>
-		</ScrollView>
-		</SafeAreaView>
 		</Main>
 		</Wrapper>
 	);

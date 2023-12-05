@@ -26,11 +26,16 @@ class ListExpenses extends Component {
 		this.setState({textOutput: '....'})
 		console.log(list)
 	}
-	/*setStorage = () => {
+	setStorage = () => {
 		//get list and add to list? 
-		storage.set('expensesList', this.textValue);
-		console.log('storage: ', storage.getString(textOutput))
-	}*/
+		const add = {
+			name: this.textOutput,
+			value: this.textValue,
+		}
+		list.push(add)
+		storage.set('expensesList', JSON.stringify(list))
+		console.log(JSON.stringify(list))
+	}
 	render() {
 		return(
 			<View>
@@ -68,7 +73,7 @@ class ListExpenses extends Component {
 					  onChangeText={(textValue) => this.setState({textValue})}
 					  selectionColor='#a3be8c'
 			/>
-			<View style={styles.newButtonContainer}>
+			<View style={styles.saveButtonContainer}>
 				<ModalButton // new budget button
 					color="white"
 					screenName="Save" 
@@ -81,21 +86,25 @@ class ListExpenses extends Component {
 }
 
 const InvoiceModal = props => {
-	const [name, onChangeName] = React.useState('Name');
-	const [number, onChangeNumber] = React.useState('0');
-	useEffect(() => {
-		storage.set('expense', name);
-		console.log('expense', name);
-		storage.set('cost', number);
-		console.log('cost', number)
-	}, [])
-
 
 	expenses = () => props.navigation.navigate('Expense')
 
 	return (
+		
 		<Main style={styles.main}>
 			<ListExpenses></ListExpenses>
+			<View style={styles.exitButtonContainer}>
+				<ModalButton // new budget button
+					color="white"
+					screenName="Exit" 
+					onPress={expenses}
+				/>
+			</View>
+			<SafeAreaView style={styles.scrollView}>
+			<ScrollView>
+			<ContentText style={styles.ScrollText}>
+				Saved Expenses: 
+			</ContentText>
 			<View style={styles.container}>
       			{list.map((expense) => {
         			return (
@@ -105,31 +114,8 @@ const InvoiceModal = props => {
        		 		);
       			})}
     		</View>
-			<ContentText style={styles.catagoryText}>
-				Name:
-			</ContentText>
-            <TextInput
-					style={styles.input}
-					placeholder='type here'
-					onChangeText={onChangeName}
-					value={name}
-				/>
-            <ContentText style={styles.catagoryText}>
-				Total: 
-			</ContentText>
-            <TextInput
-					style={styles.input}
-					placeholder='$......'
-					onChangeText={onChangeNumber}
-					value={number}
-			/>
-			<View style={styles.newButtonContainer}>
-				<ModalButton // new budget button
-					color="white"
-					screenName="Save" 
-					onPress={expenses}
-				/>
-			</View>
+			</ScrollView>
+			</SafeAreaView>
 		</Main>
 	)
 

@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
 	//scroll view
 	scrollView: { // https://reactnative.dev/docs/scrollview
 		paddingTop: StatusBar.currentHeight,
+		backgroundColor: '#a6f6d8',
 	},
 	main: {
 		marginTop: 5,
@@ -106,20 +107,6 @@ const styles = StyleSheet.create({
 		width: 200,
 		backgroundColor:'#11cd86' // green
 	},
-	
-	// new catagory
-	catagoryText:{
-		marginTop: 5,
-		marginBottom: 5,
-		fontSize: 20,
-		fontWeight: '300',	
-	},
-	input:{
-		height: 40,
-		margin: 12,
-		borderWidth: 1,
-		padding: 10,
-	},
 
 	//expense screen
 	addExpense:{ // add expense button 
@@ -149,13 +136,47 @@ const styles = StyleSheet.create({
 	//invoice
 	container: {
 		flex: 1,
-		padding: 50,
+		padding: 10,
 	},
 	item: {
-		padding: 20,
-		fontSize: 15,
-		marginTop: 5,
+		padding: 2,
+		fontSize: 20,
+		marginTop: 2,
 	},
+	exitButtonContainer:{ // start screen button for questionare
+		backgroundColor:'#056fa8', // green
+		marginLeft: 20, 
+		marginRight: 20,
+		marginBottom: 20,  
+	},
+	ScrollText:{
+		marginTop: 5,
+		paddingLeft:10,
+		fontSize: 20,
+		textDecorationLine: 'underline',
+	},
+	saveButtonContainer:{ // start screen button for questionare
+		marginLeft: 20, 
+		marginRight: 20,
+		marginBottom: 10,
+		marginTop: 10,
+		backgroundColor:'#11cd86' // green
+	},
+	catagoryText:{
+		marginTop: 2,
+		paddingLeft: 5,
+		marginBottom: 2,
+		fontSize: 20,
+		fontWeight: '300',	
+	},
+	input:{
+		height: 40,
+		margin: 8,
+		borderWidth: 1,
+		paddingLeft: 10,
+		paddingRight: 10,
+	},
+
 
 });
 
