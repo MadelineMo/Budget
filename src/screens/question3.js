@@ -18,7 +18,7 @@ const Question3 = props => {
 	// save name once state changes
 	useEffect(() => {
 		storage.set('income', income);
-		storage.set('total', income);
+		storage.set('budgetTotal', income);
 		console.log('income', income);
 	}, [income])
 

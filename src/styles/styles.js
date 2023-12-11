@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
 	//scroll view
 	scrollView: { // https://reactnative.dev/docs/scrollview
 		paddingTop: StatusBar.currentHeight,
-		backgroundColor: '#a6f6d8',
 	},
 	main: {
 		marginTop: 5,
@@ -82,6 +81,12 @@ const styles = StyleSheet.create({
 		height: 40,
 		color: '#000000',
 	},
+	rerenderButton:{
+		//margin: 40,
+		paddingLeft: 60,
+		paddingRight: 60,
+		backgroundColor: '#f70044', // red
+	},
 	
 	// new budget screen - questionnaire
 	newHeading: { 
@@ -146,7 +151,7 @@ const styles = StyleSheet.create({
 		margin: 10,
 	},
 
-	//invoice
+	//invoice - now incorperated into expense screen
 	container: {
 		flex: 1,
 		padding: 10,
@@ -188,6 +193,12 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		paddingLeft: 10,
 		paddingRight: 10,
+	},
+	rerenderButton2:{
+		marginLeft: 20, 
+		marginRight: 20,
+		marginBottom: 10,
+		backgroundColor: '#f70044', // red
 	},
 
 

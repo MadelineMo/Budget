@@ -1,40 +1,27 @@
 // import react js base library
 import React, { useEffect, useState } from 'react';
 // import custom components
-import { ContentText, Header, Main, NavButton, Wrapper } from '../components/structure.js';
+import { ContentText, Main, NavButton, Wrapper } from '../components/structure.js';
 // import default app styles
 import { styles } from '../styles/styles.js';
-import { Image, Pressable, View, ScrollView, SafeAreaView, TextInput } from 'react-native';
-
-//import { MMKV } from 'react-native-mmkv'
-
-//export const storage = new MMKV({
-  //id: `budgetStorage`,
-  //path: `/Users/madelinemoran/Apps/Budget/src/Storage/storage`,
-//})
-
-//storage.set('name', 'Monthly Budget')
-//storage.set('time', 30)
-//storage.set('income', 1000)
-//storage.set('totalExpense', 600)
-
-//const name = storage.getString('name')
-//console.log(name)
+import { Image, View, TextInput } from 'react-native';
 import { storage } from '/Users/madelinemoran/Apps/Budget/src/storage.js' 
 
 const Question4 = props => {
 	//state notice when name is changed
 	const [expense, onChangeExpense] = React.useState('500');
-	const list = [];
 
 	// save name once state changes
 	useEffect(() => {
+		//const blankList = [];
 		storage.set('max', expense);
-		storage.set('expensesList', JSON.stringify(list));
+		storage.set('expensesList', '[]');
+		console.log(JSON.stringify(storage.getString('expensesList')))
 		console.log('max', expense);
 	}, [expense])
 
-	/*resetList = () => {
+	/* didnt work
+	resetList = () => {
 		storage.delete('expensesList')
 		storage.set('expensesList', JSON.stringify(list));
 	}*/
@@ -60,7 +47,7 @@ const Question4 = props => {
 					value={expense}
 				/>
 				<View style={styles.nextButtonContainer}>
-					<NavButton // old budget button
+					<NavButton // budget screen
 						color="white"
 						screenName="Next"
 						onPress={loadRouteHome}

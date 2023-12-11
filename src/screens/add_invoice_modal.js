@@ -10,9 +10,6 @@ import { Image, Pressable, View, ScrollView, SafeAreaView, Modal, ImageBackgroun
 
 import { storage } from '/Users/madelinemoran/Apps/Budget/src/storage.js'
 
-const list = JSON.parse(storage.getString('expensesList'))
-const total = storage.getString('total')
-
 class ListExpenses extends Component {
 	constructor(props){
 		super(props);
@@ -20,19 +17,24 @@ class ListExpenses extends Component {
 			textInput: '',
 			textOutput: 'bill',
 			textValue: '100',
-			displayList: list,
+			displayList: JSON.parse(storage.getString('expensesList')),
 		};
 	}
 	setStorage = () => {
-		//get list and add to list? 
+		//subtract expense from total and save as new total
+		const total = storage.getString('budgetTotal')
 		const newTotal = total - this.state.textValue
+		storage.set('budgetTotal', JSON.stringify(newTotal))
+		//get stored list and add to it with new list item
+		const list = JSON.parse(storage.getString('expensesList'))
 		const add = {
 			name: this.state.textOutput,
 			value: this.state.textValue,
 		}
+		console.log('beforelise',JSON.stringify(list))
 		list.push(add)
+		console.log('afterlist',JSON.stringify(list))
 		storage.set('expensesList', JSON.stringify(list))
-		storage.set('total', newTotal)
 		//this.setState({displayList: list})
 		//console.log(JSON.stringify(list))
 	}
@@ -72,27 +74,20 @@ class ListExpenses extends Component {
 					//onPress={() => {this.setStorage; this.setState({displayList: list})}}
 				/>
 			</View>
-			<View style={styles.exitButtonContainer}>
-				<ModalButton // new budget button
-					color="white"
-					screenName="Exit" 
-					onPress={expenses}
-				/>
-			</View>
 			</View>
 		)
 	}
 }
 
 const InvoiceModal = props => {
-
 	expenses = () => props.navigation.navigate('Home')
+	const list = JSON.parse(storage.getString('expensesList'))
 	const [display, setDisplay] = useState(list);
-	useEffect(() => {
-		updateDisplay();
-	})
-	const updateDisplay = () => {
-		setDisplay(list);
+
+	resetValue = () => {
+		const getList = storage.getString('expensesList')
+		setDisplay(getList);
+		console.log('resetValue', JSON.stringify(list))
 	}
 	/*<View style={styles.exitButtonContainer}>
 				<ModalButton // new budget button
@@ -105,9 +100,23 @@ const InvoiceModal = props => {
 	return (
 		
 		<Main style={styles.main}>
-			<ListExpenses></ListExpenses>
 			<SafeAreaView style={styles.scrollView}>
 			<ScrollView>
+			<ListExpenses></ListExpenses>
+			<View style={styles.rerenderButton2}>
+				<ModalButton // new budget button
+					color="white"
+					screenName="Rerender" 
+					onPress={resetValue}
+				/>
+			</View>
+			<View style={styles.exitButtonContainer}>
+				<ModalButton // new budget button
+					color="white"
+					screenName="Exit" 
+					onPress={expenses}
+				/>
+			</View>
 			<ContentText style={styles.ScrollText}>
 				Saved Expenses: 
 			</ContentText>

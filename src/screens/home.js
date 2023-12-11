@@ -16,22 +16,24 @@ const HomeScreen = props => {
 	const [name, setName] = React.useState('Name');
 	const [income, setIncome] = React.useState('0');
 	const [max, setExpense] = React.useState('0');
-	const [total, setTotal] = React.useState('0');
+	const [total, setTotal] = React.useState(storage.getString('budgetTotal'));
 	// save name once state changes
-	useEffect(() => {
+	useEffect(() => { // useEffect is not being called at each rerender?
 		storeName = storage.getString('name')
 		storeIncome = storage.getString('income')
 		storeMax = storage.getString('max')
-		storeTotal = storage.getString('total')
-		
-		console.log('total',storeTotal)
 
 		setName(storeName)
 		setIncome(storeIncome)
 		setExpense(storeMax)
-		setTotal(storeTotal)
 
 	}, [])
+	resetValue = () => {
+		const newTotal = storage.getString('budgetTotal')
+		console.log('new total',newTotal)
+		setTotal(newTotal)
+	}
+
 	
 	const savings = income - max;
 	
@@ -54,7 +56,7 @@ const HomeScreen = props => {
 			{/* over lay text on image - savings centered in circle */}
 				<ImageBackground source={require('./images/temp.png')} style={styles.logoImage}>
 					<ContentText style={styles.homeHeading}>
-						Current Savings: ${income}
+						Current Savings: ${total}
 					</ContentText>
 				</ImageBackground>
 				<ContentText style={styles.homeHeading2}>
@@ -66,6 +68,13 @@ const HomeScreen = props => {
 						color="white"
 						screenName="Expenses" 
 						onPress={expenses}
+					/>
+				</View>
+				<View style={styles.rerenderButton}>
+					<ModalButton // new budget button
+						color="white"
+						screenName="Rerender" 
+						onPress={resetValue}
 					/>
 				</View>
 			</View>
