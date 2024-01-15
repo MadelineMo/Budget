@@ -20,10 +20,14 @@ const Question3 = props => {
 		storage.set('income', income);
 		storage.set('budgetTotal', income);
 		console.log('income', income);
+		
+		storage.set('expensesList', '[]');
+		console.log(JSON.stringify(storage.getString('expensesList')))
+		
 	}, [income])
 
 	// load link to home screen
-	loadRouteNext = () => props.navigation.navigate('Question 4');
+	loadRouteNext = () => props.navigation.navigate('Saved Budget');
 	return (
 		<Wrapper style={styles.wrapper}>
 		<Main style={styles.main}>

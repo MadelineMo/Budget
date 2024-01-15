@@ -15,13 +15,13 @@ class ListExpenses extends Component {
 			textInput: '',
 			textOutput: 'bill',
 			textValue: '0',
-			displayList: JSON.parse(storage.getString('expensesList')),
+			displayList: JSON.parse(storage.getString('incomeList')),
 		};
 	}
 	setStorage = () => {
 		//subtract expense from total and save as new total
 		const total = storage.getString('budgetTotal')
-		const newTotal = parseFloat(total) + parseFloat(this.state.textValue)
+		const newTotal = total - this.state.textValue
 		storage.set('budgetTotal', JSON.stringify(newTotal))
 		//get stored list and add to it with new list item
 		const list = JSON.parse(storage.getString('expensesList'))
@@ -31,16 +31,16 @@ class ListExpenses extends Component {
 		}
 		console.log('beforelise',JSON.stringify(list))
 		list.push(add)
-		//const newList = [{add}, ...list];
 		console.log('afterlist',JSON.stringify(list))
 		storage.set('expensesList', JSON.stringify(list))
 		//this.setState({displayList: list})
 		//console.log(JSON.stringify(list))
 	}
-	clearList = () => {
-		storage.set('expensesList', '[]');
-		console.log(JSON.stringify(storage.getString('expensesList')))
-	}
+	/* <View style={styles.quoteContext}>
+				<Text style={styles.questionText}>
+					{this.state.textOutput}: ${this.state.textValue}
+				</Text>
+			</View>*/
 	render() {
 		return(
 			<View>
@@ -69,13 +69,7 @@ class ListExpenses extends Component {
 					color="white"
 					screenName="Save" 
 					onPress={this.setStorage}
-				/>
-			</View>
-			<View style={styles.clearButton}>
-				<ModalButton // new budget button
-					color="white"
-					screenName="Clear List" 
-					onPress={this.clearList}
+					//onPress={() => {this.setStorage; this.setState({displayList: list})}}
 				/>
 			</View>
 			</View>
@@ -114,7 +108,6 @@ const InvoiceModal = props => {
 					onPress={resetValue}
 				/>
 			</View>
-			
 			<View style={styles.exitButtonContainer}>
 				<ModalButton // new budget button
 					color="white"
@@ -126,7 +119,7 @@ const InvoiceModal = props => {
 				Saved Expenses: 
 			</ContentText>
 			<View style={styles.container}>
-      			{list.slice(0).reverse().map((expense, index) => {
+      			{list.map((expense, index) => {
         			return (
           				<View style={styles.item} key={index}>
             				<Text style={styles.item}> {expense.name}: ${expense.value}</Text>

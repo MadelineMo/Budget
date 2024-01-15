@@ -200,7 +200,12 @@ const styles = StyleSheet.create({
 		marginBottom: 10,
 		backgroundColor: '#f70044', // red
 	},
-
+	clearButton:{
+		marginLeft: 20, 
+		marginRight: 20,
+		marginBottom: 10,
+		backgroundColor: '#000000', 
+	},
 
 });
 

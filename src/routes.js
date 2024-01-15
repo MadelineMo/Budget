@@ -10,19 +10,19 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // custom components
-import { CustomDrawerContent } from './components/nav.js';
+//import { CustomDrawerContent } from './components/nav.js';
 
 import HomeScreen from './screens/home.js';
 import StartScreen from './screens/start.js';
-import ExpenseScreen from './screens/expense_screen.js';
+//import ExpenseScreen from './screens/old/expense_screen.js';
+import IncomeScreen from './screens/add_income.js'
 import InvoiceModal from './screens/add_invoice_modal.js';
-import CatagoryModal from './screens/add_catagory_modal.js';
-import NewBudget from './screens/questionare_screen.js';
-import OldBudgetScreen from './screens/saved_budgets_modal.js';
+//import NewBudget from './screens/old/questionare_screen.js';
+//import OldBudgetScreen from './screens/old/saved_budgets_modal.js';
 import Question1 from './screens/question1.js';
-import Question2 from './screens/question2.js';
+//import Question2 from './screens/old/question2.js';
 import Question3 from './screens/question3.js';
-import Question4 from './screens/question4.js';
+//import Question4 from './screens/old/question4.js';
 
 
 // instantiate navigator object 
@@ -48,25 +48,9 @@ const HomeStackScreen = () => { // premade budget - should actually start with b
 							headerShown:false
 						}}
 					/>
-			<HomeStack.Screen 
-						name="NewCatagory"
-						component={CatagoryModal}
-						options={{
-							title: "New Catagory",
-							animation: 'slide_from_bottom',
-							presentation: 'modal',
-							headerStyle: {
-								backgroundColor: '#056fa8', //blue
-							  },
-							  headerTitleStyle: {
-								fontSize: 24,
-								color: '#ffffff' //white
-							  },
-						}}
-					/>
 			<HomeStack.Screen
-						name="Expense" 
-						component={ExpenseScreen}
+						name="incomePage" 
+						component={IncomeScreen}
 						options={{
 							title: 'Expense', 
 							headerStyle: {
@@ -122,36 +106,10 @@ const NewStackScreen = () => { // premade budget - should actually start with bu
 			/>
 			<NewStack.Screen 
 				name="Question 2" // new budget questionnaire
-				component={Question2}
-				options={{ 
-					headerStyle: {
-						backgroundColor: '#eceff4', // blue
-					  },
-					  headerTitleStyle: {
-						fontSize: 24,
-						color: 'black'
-					  },
-				}}
-			/>
-			<NewStack.Screen 
-				name="Question 3" // new budget questionnaire
 				component={Question3}
 				options={{ 
 					headerStyle: {
 						backgroundColor: '#eceff4', 
-					  },
-					  headerTitleStyle: {
-						fontSize: 24,
-						color: 'black'
-					  },
-				}}
-			/>
-			<NewStack.Screen 
-				name="Question 4" // new budget questionnaire
-				component={Question4}
-				options={{ 
-					headerStyle: {
-						backgroundColor: '#eceff4', // blue
 					  },
 					  headerTitleStyle: {
 						fontSize: 24,
